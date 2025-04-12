@@ -71,3 +71,11 @@ impl Project for HelloWorldProject {
 fn main() -> impl Project {
     HelloWorldProject
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test() {
+        assert_eq!(2 + 2, 4);
+    }
+}

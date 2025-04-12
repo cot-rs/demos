@@ -50,11 +50,6 @@ jobs:
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.9
 
-      - name: Install cargo-nextest
-        uses: taiki-e/install-action@v2
-        with:
-          tool: nextest
-
       - name: Fetch dependencies
         run: cargo +${{ matrix.rust }} fetch --locked
 
@@ -62,13 +57,7 @@ jobs:
         run: cargo +${{ matrix.rust }} build --all-features --tests
 
       - name: Test
-        run: cargo +${{ matrix.rust }} nextest run --all-features
-
-      # Nextest does not support doc tests as in stable Rust
-      # they are not exposed in the same way as normal tests.
-      # https://github.com/nextest-rs/nextest/issues/16
-      - name: Test docs
-        run: cargo +${{ matrix.rust }} test --all-features --doc
+        run: cargo +${{ matrix.rust }} test run --all-features
 
   clippy:
     if: github.event_name == 'push' || github.event_name == 'schedule' || github.event.pull_request.head.repo.full_name != github.repository
