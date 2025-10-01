@@ -34,7 +34,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
@@ -67,7 +67,7 @@ jobs:
     needs: ["build"]
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
@@ -96,7 +96,7 @@ jobs:
     needs: ["build"]
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
@@ -125,7 +125,7 @@ jobs:
     needs: ["build"]
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
@@ -143,4 +143,4 @@ jobs:
         uses: mozilla-actions/sccache-action@v0.0.9
 
       - name: Run cargo-machete
-        uses: bnjbvr/cargo-machete@v0.8.0
+        uses: bnjbvr/cargo-machete@v0.9.1
